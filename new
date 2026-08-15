@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+set -ex
+
+filename=$(ls | grep -Po '\d\d\d' | tail -n1)
+filename=$[ $filename + 1 ].md
+cat >$filename - <<- _EOF_
+# $(date +%Y-%m-%d)
+
+## 
+
+### Uiua
+
+\`\`\`
+\`\`\`
+
+## 
+
+### Uiua
+
+\`\`\`
+\`\`\`
+_EOF_
+nvim $filename
